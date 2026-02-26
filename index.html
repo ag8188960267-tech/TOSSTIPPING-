@@ -4,19 +4,164 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>☄️𝗧𝗜𝗣𝗣𝗜𝗡𝗚 𝗧𝗢𝗦𝗦 𝗟𝗢𝗔𝗗☄️ - Premium Cricket Tips</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 <style>
-body{min-height:100vh;background:#020617;color:white;display:flex;justify-content:center;align-items:center;}
-.logo{width:150px;height:150px;border-radius:50%;border:4px solid gold;box-shadow:0 0 20px gold;}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600;700&display=swap');
+*{font-family:'Poppins',sans-serif;}
+
+body{
+min-height:100vh;
+background:radial-gradient(circle at top,#020617,#000);
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(30px);
+border-radius:35px;
+padding:35px 25px;
+box-shadow:0 0 40px gold,0 0 150px magenta;
+border:2px solid rgba(255,215,0,.6);
+animation:glow 4s infinite alternate;
+max-width:430px;
+width:100%;
+text-align:center;
+color:white;
+}
+
+@keyframes glow{
+from{box-shadow:0 0 25px gold,0 0 80px orange}
+to{box-shadow:0 0 60px cyan,0 0 180px magenta}
+}
+
+.logo{
+width:150px;
+height:150px;
+border-radius:50%;
+border:5px solid gold;
+box-shadow:0 0 40px gold,0 0 100px orange;
+animation:pulse 2s infinite;
+object-fit:cover;
+margin:auto;
+}
+
+@keyframes pulse{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.12)}
+}
+
+.live{
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+0%,100%{opacity:1}
+50%{opacity:.4}
+}
+
+.join-btn{
+background:linear-gradient(135deg,#ffd700,#ff00aa);
+font-family:'Bebas Neue',sans-serif;
+letter-spacing:3px;
+padding:20px 25px;
+border-radius:18px;
+position:relative;
+overflow:hidden;
+transition:.3s;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+color:black;
+font-size:22px;
+margin:25px auto 0 auto;
+width:100%;
+max-width:300px;
+}
+
+.join-btn::before{
+content:'';
+position:absolute;
+top:0;left:-120%;
+width:120%;height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);
+animation:shine 2s infinite;
+}
+
+@keyframes shine{
+from{left:-120%}
+to{left:200%}
+}
+
+.join-btn:hover{
+transform:scale(1.12);
+box-shadow:0 0 50px gold,0 0 150px magenta;
+}
+
 </style>
 </head>
+
 <body>
-<div style="text-align:center;">
-<img src="logo.jpg" class="logo"><br><br>
-<h1>☄️𝗧𝗜𝗣𝗣𝗜𝗡𝗚 𝗧𝗢𝗦𝗦 𝗟𝗢𝗔𝗗☄️</h1>
-<a href="https://t.me/+H2J8cLAqpbgxN2I1">JOIN TELEGRAM</a>
+
+<div class="card">
+
+<img src="logo.jpg" class="logo">
+
+<div class="mt-4">
+<span class="bg-green-500 text-black px-4 py-1 rounded-full text-sm font-bold live">● LIVE MATCH TIPS</span>
 </div>
+
+<h1 class="text-4xl mt-3" style="font-family:'Bebas Neue',sans-serif;">
+☄️𝗧𝗜𝗣𝗣𝗜𝗡𝗚 𝗧𝗢𝗦𝗦 𝗟𝗢𝗔𝗗☄️
+</h1>
+
+<p class="text-yellow-400 tracking-widest mt-1">Premium Cricket Predictions</p>
+
+<div class="space-y-2 text-lg font-semibold mt-5">
+<p>🏆 IPL 2024 : <span class="text-green-400">68/74 PASS</span></p>
+<p>🔥 IPL 2025 : <span class="text-yellow-400">Free Tips</span></p>
+<p>⭐ 12+ Years Experience</p>
+<p>👥 Members Joined: <span id="counter" class="text-cyan-400">10234</span></p>
+</div>
+
+<a href="https://t.me/+H2J8cLAqpbgxN2I1" target="_blank" class="join-btn">
+<i class="fab fa-telegram"></i> JOIN TELEGRAM CHANNEL
+</a>
+
+<p class="text-gray-300 text-xs mt-4">
+100% Free • Fast Updates • Trusted Channel
+</p>
+
+<p id="redirectText" class="text-sm text-red-400 mt-2"></p>
+
+</div>
+
+<script>
+confetti({particleCount:200,spread:90,origin:{y:0.6}});
+
+let count = 10234;
+setInterval(()=>{
+count++;
+document.getElementById("counter").innerText = count;
+},3000);
+
+let sec = 5;
+let timer = setInterval(()=>{
+document.getElementById("redirectText").innerText = "Redirecting in "+sec+" seconds...";
+sec--;
+if(sec<0){
+clearInterval(timer);
+window.location.href="https://t.me/+H2J8cLAqpbgxN2I1";
+}
+},1000);
+</script>
+
 </body>
 </html>
